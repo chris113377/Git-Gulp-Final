@@ -17,10 +17,16 @@
   },
   "homepage": "https://github.com/chris113377/Git-Gulp-Final#readme",
   "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.5",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.2.0",
-    "gulp-imagemin": "^6.2.0"
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-uglify": "^3.0.2"
   }
 }
