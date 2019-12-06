@@ -12,7 +12,7 @@ canvas {
   width: 900px;
   margin: auto;
   font-family: 'VT323', monospace;
-  color: rgb(241, 223, 62);
+  color: rgb(241, 62, 196);
   display: flex;
   justify-content: space-between;
 }

@@ -1,5 +1,4 @@
 const {src, dest, series, watch} = require('gulp');
-const browserSync = require('browser-sync').create();
 const prefix = require('gulp-autoprefixer');
 const miniCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
@@ -8,8 +7,7 @@ const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 
 function html() {
-    return src('./src/*.html').pipe(dest('./dest'))
-    .pipe(browserSync.stream());
+    return src('./src/*.html').pipe(dest('./dest'));
 }
 
 function css() {
@@ -18,8 +16,7 @@ function css() {
           cascade: false
       }))
       .pipe(miniCSS())
-      .pipe(dest('./dest/css/'))
-      .pipe(browserSync.stream());
+      .pipe(dest('./dest/css/'));
 }
 
 function image() {
@@ -28,8 +25,7 @@ function image() {
           imagemin.optipng({optimizationLevel: 5}),
           imagemin.jpegtran({progressive: true})
       ]))
-      .pipe(dest('./dest/images'))
-      .pipe(browserSync.stream());
+      .pipe(dest('./dest/images'));
 }
 
 function js() {
@@ -41,20 +37,14 @@ function js() {
     }))
     .pipe(concat('main.js'))
     .pipe(uglify())
-    .pipe(dest('./dest/js/'))
-    .pipe(browserSync.stream());
+    .pipe(dest('./dest/js/'));
 }
 
 function sync() {
-    browserSync.init({
-      server: {
-        baseDir: "./dest"
-      }
-    });
-    watch('./src/*.html').on('change', series(html, browserSync.reload));
-    watch('./src/css/**/*.css').on('change', series(css, browserSync.reload));
-    watch('./src/js/*.js').on('change', series(js, browserSync.reload));
-    watch('./src/images/*').on('change', series(image, browserSync.reload));
+    watch('./src/*.html').on('change', series(html));
+    watch('./src/css/**/*.css').on('change', series(css));
+    watch('./src/js/*.js').on('change', series(js));
+    watch('./src/images/*').on('change', series(image));
 }
 
 exports.all = series(html, css, js, image, sync);
