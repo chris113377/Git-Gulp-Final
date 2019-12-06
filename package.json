@@ -1,0 +1,19 @@
+{
+  "name": "final",
+  "version": "1.0.0",
+  "description": "Final Project: Git and Automation",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chris113377/Git-Gulp-Final.git"
+  },
+  "author": "Christian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chris113377/Git-Gulp-Final/issues"
+  },
+  "homepage": "https://github.com/chris113377/Git-Gulp-Final#readme"
+}
