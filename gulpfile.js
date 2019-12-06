@@ -57,8 +57,4 @@ function sync() {
     watch('./src/images/*').on('change', series(image, browserSync.reload));
 }
 
-exports.html = html;
-exports.css = css;
-exports.image = image;
-exports.js = js;
-exports.sync = sync;
+exports.all = series(html, css, js, image, sync);
