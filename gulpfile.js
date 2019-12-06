@@ -45,7 +45,20 @@ function js() {
     .pipe(browserSync.stream());
 }
 
+function sync() {
+    browserSync.init({
+      server: {
+        baseDir: "./dest"
+      }
+    });
+    watch('./src/*.html').on('change', series(html, browserSync.reload));
+    watch('./src/css/**/*.css').on('change', series(css, browserSync.reload));
+    watch('./src/js/*.js').on('change', series(js, browserSync.reload));
+    watch('./src/images/*').on('change', series(image, browserSync.reload));
+}
+
 exports.html = html;
 exports.css = css;
 exports.image = image;
 exports.js = js;
+exports.sync = sync;
